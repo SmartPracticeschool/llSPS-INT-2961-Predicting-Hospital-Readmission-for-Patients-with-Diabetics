@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<style>
+.login{
+top: 20%;
+}
+</style>
+</head>
+
+<body>
+ <div class="login">
+	<h1>Chances of readmission</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('y_predict')}}"method="post">
+	    <input type="text" name="Name" placeholder="Name" required="required" />
+    	<input type="text" name="Gender" placeholder="Gender" required="required" />
+		<input type="text" name="Race" placeholder="Race" required="required" />
+        <!--<input type="text" name="blast_furnace_slag" placeholder="blast_furnace_slag" required="required" />
+		<input type="text" name="fly_ash" placeholder="fly_ash" required="required" />
+        <input type="text" name="water" placeholder="water" required="required" />
+        <input type="text" name="superplasticizer" placeholder="superplasticizer" required="required" />
+        <input type="text" name="coarse_aggregate" placeholder="coarse_aggregate" required="required" />
+        <input type="text" name="fine_aggregate " placeholder="fine_aggregate " required="required" />-->
+        <input type="text" name="age" placeholder="age" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
+
